@@ -2,7 +2,7 @@ name: iroh sync
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '20 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,4 +15,4 @@ jobs:
 
     - name: Push data to iroh.network & update doc
       run: |
-        ./push.sh
+        ./push_data_to_iroh_dot_network.sh

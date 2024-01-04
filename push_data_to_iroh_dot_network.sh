@@ -8,9 +8,9 @@ CURRENT_TIME=$(date +"%Y-%m-%dT%H:%M:%S")
 echo "{ \"time\": \"$CURRENT_TIME\" }" > data.json
 
 # this should be your iroh.network username/projectname that you want to upload to
-PROJECT="b5/gitcoin_grants_data_portal"
+PROJECT="b5/github_actions"
 # create a document in your project & paste the doc id here
-DOC_ID="yy3xsxixinbxap3cnnfmkrta2z6wwk3tuau2j42obakjikux7ufa"
+DOC_ID="5coyw3ythr3ctrh33vl6x63qv2qzg55iok7t5k6rkd2tdwbiq2wq"
 
 # this script skips using iroh entirely, because all we need is iroh-bytes, iroh-net, and
 # the iroh.network HTTP API. Sendme is iroh-bytes + iroh-net, so we'll use that for transfer
@@ -38,7 +38,7 @@ echo "Ticket: ${TICKET}"
 
 # intiate sendme transfer to iroh.network iroh node
 echo "Uploading content to iroh.network..."
-curl "https://api.staging.iroh.network/blobs/$PROJECT" \
+curl "https://api.iroh.network/blobs/$PROJECT" \
   -X POST \
   -H "Authorization: Bearer ${IROH_DOT_NETWORK_API_KEY}" \
   -H "Content-Type: application/json" \
@@ -46,7 +46,7 @@ curl "https://api.staging.iroh.network/blobs/$PROJECT" \
 
 # tell iroh.network to update the document entry
 echo "Updating document entry..."
-curl "https://api.staging.iroh.network/docs/$PROJECT/${DOC_ID}/set-hash" \
+curl "https://api.iroh.network/docs/$PROJECT/${DOC_ID}/set-hash" \
   -X POST \
   -H "Authorization: Bearer ${IROH_DOT_NETWORK_API_KEY}" \
   -H "Content-Type: application/json" \
