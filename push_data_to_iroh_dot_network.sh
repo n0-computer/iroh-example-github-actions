@@ -30,7 +30,7 @@ HASH=$(grep "hash" ticket | awk '{print $7}')
 echo "Hash: ${HASH}"
 
 # get file size
-SIZE=$(wc -c <"data.json")
+SIZE=$(wc -c < "data.json")
 
 # extract ticket from sendme output
 TICKET=$(grep "sendme receive" ticket | awk '{print $3}')
